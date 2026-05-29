@@ -48,9 +48,29 @@ method get_trackers {
     $trackers->items;
 }
 
-method get_user {
-    my $res = $self->request("myuser");
-    return $res;
+use Weenect::Preferences;
+
+method get_preferences {
+    my $res = $api->request("myuser");
+    return unless $res;
+
+    return Weenect::Preferences->create($res);
+}
+
+# E.g.
+# langiage => "nl"
+#
+# mail_pref => { offers => 0, company_news => 0, new_features => 0,
+#                surveys_and_tests => 0 },
+# optin => 0, preferred_metric_system => "km"
+
+method set_preferences( %prefs ) {
+    my $res = $api->request( "myuser",
+			     { Content => \%prefs }
+			   );
+    return unless $res;
+
+    return Weenect::Preferences->create($res);
 }
 
 method get_animals( $imei ) {
