@@ -3,8 +3,8 @@
 # Author          : Johan Vromans
 # Created On      : Thu Apr 23 19:20:34 2026
 # Last Modified By: Johan Vromans
-# Last Modified On: Fri May 29 21:45:51 2026
-# Update Count    : 254
+# Last Modified On: Fri May 29 22:13:25 2026
+# Update Count    : 255
 # Status          : Unknown, Use with caution!
 
 ################ Common stuff ################
@@ -157,29 +157,3 @@ Usage: $0 [options] [file ...]
 EndOfUsage
     exit $exit if defined $exit && $exit != 0;
 }
-
-__END__
-
-POST /v4/mytracker/711329/vibrate
-  {}
-POST /v4/mytracker/711329/ring
-  {}
-POST /v4/mytracker/711329/flash
-  {"intermittent_duration_ms_on":100,"intermittent_duration_ms_off":100,"duration_minutes":1}
-
-# super live 1 sec int, 5 min.
-POST /v4/mytracker/711329/st-mode
-  {"interval":10}
-
-GET /v4/animal?imei=357064570234091
-{"items": [{"id": 186922, "created_at": "Sat, 11 Apr 2026 13:11:25 -0000", "updated_at": "Sat, 11 Apr 2026 13:11:25 -0000", "is_activated": true, "tracker_id": 711329, "species": "cat", "breed_id": 22, "sex": "female", "birth_date": "2020-02-10T23:00:00+00:00", "is_sterilized": true, "santevet_optin": false, "identification": "none", "habitual_environment": null, "activity_level": 100, "name": "Joan", "morphology": null, "weight": 10.0, "last_vet_visit_date": "2025-01-10T23:00:00+00:00", "last_vaccination_date": "2025-01-10T23:00:00+00:00", "breed": ""}], "total": 1}
-
-/v4/myuser
-  {"language":"nl"}
-  ->
-  { ... }
-
-  {"mail_pref":{"offers":false,"company_news":false,"new_features":false,"surveys_and_tests":false},"optin":false,"preferred_metric_system":"km"}
-  ->
-  {"id": 488175, "site": "weenect", "mail": "jvromans@squirrel.nl", "valid": null, "is_admin": false, "is_security": false, "is_premium": false, "role_retailer_id": 0, "role_site": null, "need_subscription": true, "lastname": "Vromans", "firstname": "Johan", "contact_mail": "", "address": "Cederlaan 6", "postal_code": "7875EB", "city": "Exloo", "country": "NL", "phone": "+31591585507", "creation_date": "2026-04-08T09:25:19.997678", "connection_date": "2026-05-19T09:26:06.740389", "last_connection_date": "2026-05-18T22:10:01.753484", "sms": 40, "language": "en", "optin": false, "disable_history": false, "short_code": null, "is_b2b": false, "review_link": "https://uk.trustpilot.com/evaluate-link/e4c6353e0604af605ac8d6075b8aeea4", "preferred_metric_system": "km", "white_label": {"code": "UNKNOWN", "name": "unknown", "logo": null, "logo_header": null, "logo_splashscreen": null, "display_logo": false, "display_header": false, "display_splashscreen": false}, "emailpref": null, "account_options": [{"id": 786320079, "code": "premium_pack", "sms": 0, "amount": 299, "currency": "EUR", "activated": false, "is_running": false, "user_id": 488175, "subscription_id": 0, "created_at": "2026-04-08T09:32:17.326084", "updated_at": "2026-05-04T17:28:16.662876", "next_charge_at": "2026-05-08T09:32:17.341235", "activation_date": "2026-04-08T09:32:17.341293", "cancel_date": "2026-05-04T17:28:16.662265", "cancel_reason": "OTHER"}], "account_option_offers": [{"id": 21, "site": "weenect", "code": "premium_pack", "sms": 40, "created_at": "2022-09-05T20:46:12.810371", "updated_at": "2022-09-05T20:46:12.810371", "price_offer": {"id": 8, "code": "premium_pack", "fr": {"amount": 299, "currency": "EUR"}, "nl": {"amount": 299, "currency": "EUR"}, "de": {"amount": 299, "currency": "EUR"}, "en": {"amount": 290, "currency": "GBP"}, "es": {"amount": 299, "currency": "EUR"}, "it": {"amount": 299, "currency": "EUR"}}}], "user_notation": {"id": 426968, "created_at": "Wed, 08 Apr 2026 09:30:11 -0000", "updated_at": "Thu, 28 May 2026 12:34:01 -0000", "amazon_review_link": "", "trustpilot_product_review_link": "https://products.trustpilot.com/evaluate/d9c7b79e7b8a53438b5a93dd59d47f00", "trustpilot_service_review_link": "https://uk.trustpilot.com/evaluate-link/e4c6353e0604af605ac8d6075b8aeea4", "notation_in_app": null, "user_id": 488175}, "default_payment_mean": {"id": 647618, "created_at": "2026-04-08T09:32:17.260213", "updated_at": "2026-04-08T09:32:17.260218", "is_activated": null, "payment_mean": "stripe", "ipaddress": null, "country": "NL", "payment_id": "pm_1TJsR8LIKqgzIIGYvApBdwWn", "payment_additional_id": null, "bank_account": null, "customer_id": "cus_UITLUJh2bHOEV1", "payment_product": "visa", "card_expiry": "2027-03-31T23:59:59", "card_pan": "XXXXXXXXXXXX7419", "user_id": 488175, "has_card_expired": false, "has_insufficient_funds": false, "count_subscription_payment_error": 0, "count_option_payment_error": 0}, "mail_pref": {"offers": false, "company_news": false, "new_features": false, "surveys_and_tests": false}}
-  
