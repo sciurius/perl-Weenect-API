@@ -75,4 +75,11 @@ method vibrate {
     return $res;
 }
 
+method super_live {
+    my $res = $api->request( sprintf( "mytracker/%d/st-mode", $id ),
+			     { Content => {} } );
+    # return unless $res;
+    return $res;		# {"interval":10}
+}
+
 1;
