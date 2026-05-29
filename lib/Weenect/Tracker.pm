@@ -76,6 +76,8 @@ method vibrate {
 }
 
 method super_live {
+    # Enable super-live (1 sec interval) for 5 minutes.
+    # Longer period requires additional subscription.
     my $res = $api->request( sprintf( "mytracker/%d/st-mode", $id ),
 			     { Content => {} } );
     # return unless $res;
