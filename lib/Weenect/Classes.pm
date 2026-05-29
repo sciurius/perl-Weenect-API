@@ -96,4 +96,32 @@ class Weenect::Point {
     }
 }
 
+class Weenect::Animals :does(Class::JSON_Object) {
+    field $total;
+    field @items :Class(Weenect::Animal);
+}
+
+class Weenect::Animal :does(Class::JSON_Object) {
+    field $activity_level;              # 
+    field $birth_date;                  # 
+    field $breed;                       # 
+    field $breed_id;                    # 
+    field $created_at;                  # 
+    field $habitual_environment;        # 
+    field $id;                          # 
+    field $identification;              # 
+    field $is_activated;                # 
+    field $is_sterilized;               # 
+    field $last_vaccination_date;       # 
+    field $last_vet_visit_date;         # 
+    field $morphology;                  # 
+    field $name;                        # 
+    field $santevet_optin;              # 
+    field $sex;                         # 
+    field $species;                     # 
+    field $tracker_id;                  # 
+    field $updated_at;                  # 
+    field $weight;                      # 
+}
+
 1;

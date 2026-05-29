@@ -53,4 +53,13 @@ method get_user {
     return $res;
 }
 
+method get_animals( $imei ) {
+    my $res = $api->request( sprintf("animal?imei=%s", $imei) );
+    return unless $res;
+
+    my $animals = Weenect::Animals->create($res);
+
+    return $animals->items;
+}
+
 1;
