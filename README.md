@@ -18,10 +18,20 @@
 
 ## DESCRIPTION
 
+[Weenect](https://www.weenect.com) makes GPS trackers for cats and
+dogs. The trackers communicate positions via GSM to the Weenect
+servers, and with the Weenect app or web interface you can see where
+your pet is.
+
 This package facilitates connecting to the Weenect server and fetching
 some user and tracker data.
 
 See the programs in the scripts directory for examples.
+
+## DISCLAIMER
+
+Weenect doesn't want to disclose their API, so I needed to reverse
+engineer most of it.
 
 ## LICENSE
 

@@ -169,12 +169,12 @@ O_FILES  =
 H_FILES  = 
 MAN1PODS = 
 MAN3PODS = lib/Weenect.pm \
+	lib/Weenect/API.pm \
 	lib/Weenect/Animal.pm \
 	lib/Weenect/Connect.pm \
 	lib/Weenect/Position.pm \
 	lib/Weenect/Preferences.pm \
 	lib/Weenect/Tracker.pm \
-	lib/Weenect/User.pm \
 	lib/Weenect/WiFiZone.pm \
 	lib/Weenect/Zone.pm
 
@@ -199,6 +199,7 @@ TO_INST_PM = api.pl \
 	dist.pl \
 	gh.pl \
 	lib/Weenect.pm \
+	lib/Weenect/API.pm \
 	lib/Weenect/Animal.pm \
 	lib/Weenect/Connect.pm \
 	lib/Weenect/Position.pm \
@@ -207,7 +208,6 @@ TO_INST_PM = api.pl \
 	lib/Weenect/Tracker.pmx \
 	lib/Weenect/Tracker/WifiZone.pm \
 	lib/Weenect/Tracker/Zone.pm \
-	lib/Weenect/User.pm \
 	lib/Weenect/WiFiZone.pm \
 	lib/Weenect/Zone.pm \
 	t.pl \
@@ -445,22 +445,22 @@ POD2MAN = $(POD2MAN_EXE)
 
 manifypods : pure_all config  \
 	lib/Weenect.pm \
+	lib/Weenect/API.pm \
 	lib/Weenect/Animal.pm \
 	lib/Weenect/Connect.pm \
 	lib/Weenect/Position.pm \
 	lib/Weenect/Preferences.pm \
 	lib/Weenect/Tracker.pm \
-	lib/Weenect/User.pm \
 	lib/Weenect/WiFiZone.pm \
 	lib/Weenect/Zone.pm
 	$(NOECHO) $(POD2MAN) --section=$(MAN3SECTION) --perm_rw=$(PERM_RW) -u \
 	  lib/Weenect.pm $(INST_MAN3DIR)/Weenect.$(MAN3EXT) \
+	  lib/Weenect/API.pm $(INST_MAN3DIR)/Weenect::API.$(MAN3EXT) \
 	  lib/Weenect/Animal.pm $(INST_MAN3DIR)/Weenect::Animal.$(MAN3EXT) \
 	  lib/Weenect/Connect.pm $(INST_MAN3DIR)/Weenect::Connect.$(MAN3EXT) \
 	  lib/Weenect/Position.pm $(INST_MAN3DIR)/Weenect::Position.$(MAN3EXT) \
 	  lib/Weenect/Preferences.pm $(INST_MAN3DIR)/Weenect::Preferences.$(MAN3EXT) \
 	  lib/Weenect/Tracker.pm $(INST_MAN3DIR)/Weenect::Tracker.$(MAN3EXT) \
-	  lib/Weenect/User.pm $(INST_MAN3DIR)/Weenect::User.$(MAN3EXT) \
 	  lib/Weenect/WiFiZone.pm $(INST_MAN3DIR)/Weenect::WiFiZone.$(MAN3EXT) \
 	  lib/Weenect/Zone.pm $(INST_MAN3DIR)/Weenect::Zone.$(MAN3EXT) 
 
@@ -963,6 +963,7 @@ pm_to_blib : $(FIRST_MAKEFILE) $(TO_INST_PM)
 	  'dist.pl' '$(INST_LIB)/Weenect/dist.pl' \
 	  'gh.pl' '$(INST_LIB)/Weenect/gh.pl' \
 	  'lib/Weenect.pm' 'blib/lib/Weenect.pm' \
+	  'lib/Weenect/API.pm' 'blib/lib/Weenect/API.pm' \
 	  'lib/Weenect/Animal.pm' 'blib/lib/Weenect/Animal.pm' \
 	  'lib/Weenect/Connect.pm' 'blib/lib/Weenect/Connect.pm' \
 	  'lib/Weenect/Position.pm' 'blib/lib/Weenect/Position.pm' \
@@ -971,7 +972,6 @@ pm_to_blib : $(FIRST_MAKEFILE) $(TO_INST_PM)
 	  'lib/Weenect/Tracker.pmx' 'blib/lib/Weenect/Tracker.pmx' \
 	  'lib/Weenect/Tracker/WifiZone.pm' 'blib/lib/Weenect/Tracker/WifiZone.pm' \
 	  'lib/Weenect/Tracker/Zone.pm' 'blib/lib/Weenect/Tracker/Zone.pm' \
-	  'lib/Weenect/User.pm' 'blib/lib/Weenect/User.pm' \
 	  'lib/Weenect/WiFiZone.pm' 'blib/lib/Weenect/WiFiZone.pm' \
 	  'lib/Weenect/Zone.pm' 'blib/lib/Weenect/Zone.pm' \
 	  't.pl' '$(INST_LIB)/Weenect/t.pl' \
