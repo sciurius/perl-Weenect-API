@@ -3,8 +3,8 @@
 # Author          : Johan Vromans
 # Created On      : Mon Apr 27 16:42:51 2026
 # Last Modified By: Johan Vromans
-# Last Modified On: Sat May 30 17:19:22 2026
-# Update Count    : 127
+# Last Modified On: Sat May 30 19:38:51 2026
+# Update Count    : 128
 # Status          : Unknown, Use with caution!
 
 ################ Common stuff ################
@@ -85,6 +85,8 @@ my $gpx = make_gpx($hist);
 system( "gpxsee", $gpx ) if $view;
 
 ################ Subroutines ################
+
+use Weenect::Position;
 
 sub make_gpx( $hist ) {
     my $ds = substr($start,0,10);
