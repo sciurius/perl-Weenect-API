@@ -3,8 +3,8 @@
 # Author          : Johan Vromans
 # Created On      : Thu Apr 23 19:20:34 2026
 # Last Modified By: Johan Vromans
-# Last Modified On: Fri May 29 22:13:25 2026
-# Update Count    : 255
+# Last Modified On: Sat May 30 17:18:52 2026
+# Update Count    : 260
 # Status          : Unknown, Use with caution!
 
 ################ Common stuff ################
@@ -51,15 +51,15 @@ main();
 
 ################ Subroutines ################
 
-use Weenect::User;
-use Weenect::Classes;
+use Weenect;
+use Weenect::Position;		# for W::Point
 
 sub main() {
     my $home = Weenect::Point->new( latitude => 52.8849946,
 				    longitude => 6.8592215 );
     print("== $ts\n");
 
-    my $api = Weenect::User->new;
+    my $api = Weenect::API->new;
     $api->debug = $debug;
     $api->login;
 
@@ -109,8 +109,6 @@ sub main() {
 	    my $name = $here->geofence_name // "<unknown>";
 	    printf( "  Geofence zone: %s [%d]\n", $name, $zid );
 	}
-
-	# $tracker->ring;
     }
 }
 

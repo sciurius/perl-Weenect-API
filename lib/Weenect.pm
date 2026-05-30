@@ -3,7 +3,7 @@
 use v5.36;
 use utf8;
 
-use Weenect::User;
+use Weenect::API;
 
 package Weenect;
 
@@ -15,10 +15,16 @@ Weenect - API to Weenect tracker server
 
 =head1 SYNOPSIS
 
-    use Weenect::User;
-    my $user = Weenect::User->new;
-    $user->login( "me@example.com", "mypassword" );
-    my $trackers = $user->get_trackers;
+    use Weenect::API;
+    my $api = Weenect::API->new;
+
+    # Connect to the Weenect server.
+    $api->login( "me@example.com", "mypassword" );
+
+    # Get a list of trackers.
+    my $trackers = $api->get_trackers;
+
+    # Process tracker data.
     foreach my $tracker ( @$trackers ) {
 	printf("Tracker %s [%d%s]\n", $tracker->name, $tracker->id,
 	      $tracker->active ? "" : ",inactive" );

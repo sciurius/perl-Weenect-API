@@ -1,9 +1,14 @@
 # Weenect - API to Weenect tracker server
 
+![Version](https://img.shields.io/github/v/release/sciurius/perl-Weenect-API)
+![GitHub issues](https://img.shields.io/github/issues/sciurius/perl-Weenect-API)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http:/makeapullrequest.com)
+![Language Perl](https://img.shields.io/badge/Language-Perl-blue)
+
 ## SYNOPSIS
 
-	use Weenect::User;
-	my $user = Weenect::User->new;
+	use Weenect;
+	my $user = Weenect::API->new;
 	$user->login( "me@example.com", "mypassword" );
 	my $trackers = $user->get_trackers;
 	foreach my $tracker ( @$trackers ) {

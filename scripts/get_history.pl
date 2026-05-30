@@ -3,8 +3,8 @@
 # Author          : Johan Vromans
 # Created On      : Mon Apr 27 16:42:51 2026
 # Last Modified By: Johan Vromans
-# Last Modified On: Fri May 29 21:49:12 2026
-# Update Count    : 125
+# Last Modified On: Sat May 30 17:19:22 2026
+# Update Count    : 127
 # Status          : Unknown, Use with caution!
 
 ################ Common stuff ################
@@ -142,7 +142,7 @@ EOD
 use IO::Compress::Gzip     qw( gzip   $GzipError   );
 use IO::Uncompress::Gunzip qw( gunzip $GunzipError );
 
-use Weenect::User;
+use Weenect;
 
 sub get_history {
     my $ds = substr($start,0,10);
@@ -153,7 +153,7 @@ sub get_history {
 	return $json->decode($output);
     }
 
-    my $api = Weenect::User->new;
+    my $api = Weenect::API->new;
     $api->debug = $debug;
     $api->login;
 

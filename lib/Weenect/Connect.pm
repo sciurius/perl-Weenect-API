@@ -5,6 +5,24 @@ use Object::Pad;
 
 class Weenect::Connect;
 
+=head1 NAME
+
+Weenect::Connect - Low level server communications
+
+=head1 SYNOPSIS
+
+    my $api = Weenect::Connect->new;
+    $api->request( ... )
+
+=head1 DESCRIPTION
+
+This modules handles low level communication (REST API) with the
+Weenect server.
+
+At the application level, use Weenect::API.
+
+=cut
+
 use LWP::UserAgent;
 use HTTP::Request::Common;
 use JSON::PP;
@@ -29,6 +47,18 @@ method get_endpoint( $u = undef ) {
     $url .= "/" . $u if defined $u;
     $url;
 }
+
+=head1 METHODS
+
+Supported methods include:
+
+=head2 request( $path, [ %keys ] )
+
+Performs a REST API request.
+
+If %keys contains C<Content>, then a POST is made, otherwise it will GET.
+
+=cut
 
 method request( $path, $keys = {} ) {
     my $u = $self->get_endpoint($path);
