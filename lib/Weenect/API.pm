@@ -20,7 +20,7 @@ Weenect::API - API interaction
     my $trackers = $api->get_trackers;
 
     # Process tracker data.
-    foreach my $tracker ( @$trackers ) {
+    foreach my $tracker ( $trackers->items->@* ) {
 	printf("Tracker %s [%d%s]\n", $tracker->name, $tracker->id,
 	      $tracker->active ? "" : ",inactive" );
     }
@@ -87,8 +87,7 @@ method get_trackers {
     my $res = $api->request("mytracker");
     return unless $res;
 
-    my $trackers = Weenect::Trackers->create_with_api( $res, $api );
-    $trackers->items;
+    return Weenect::Trackers->create_with_api( $res, $api );
 }
 
 =head2 get_preferences

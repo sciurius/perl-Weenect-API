@@ -5,6 +5,8 @@ xxxx
 	(Tracker) Add on/off argument to flash.
 	(Tracker) Add get_zone, add_zone, remove_zone.
 		get_wifizone, sos_call.
+	get_*zones now return a collection object.
+	get_trackers now return a collection object.
 
 1.00	2026-05-30
 

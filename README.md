@@ -11,7 +11,7 @@
 	my $user = Weenect::API->new;
 	$user->login( "me@example.com", "mypassword" );
 	my $trackers = $user->get_trackers;
-	foreach my $tracker ( @$trackers ) {
+	foreach my $tracker ( $trackers->items->@* ) {
 		printf("Tracker %s [%d%s]\n", $tracker->name, $tracker->id,
 			  $tracker->active ? "" : ",inactive" );
 	}
