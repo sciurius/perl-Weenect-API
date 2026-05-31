@@ -188,3 +188,8 @@ class Weenect::Auth :does(Class::JSON_Object) {
 }
 
 1;
+
+# user/$uid
+# subscriptionoffer
+# mysubscription/$subscriptionid
+# mytracker/$tid/activity

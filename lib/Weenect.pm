@@ -7,7 +7,7 @@ use Weenect::API;
 
 package Weenect;
 
-our $VERSION = "1.00";
+our $VERSION = "1.01";
 
 =head1 NAME
 
@@ -29,6 +29,8 @@ Weenect - API to Weenect tracker server
 	printf("Tracker %s [%d%s]\n", $tracker->name, $tracker->id,
 	      $tracker->active ? "" : ",inactive" );
     }
+
+    $api->logout;	# generally not needed
 
 =head1 DESCRIPTION
 

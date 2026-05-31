@@ -113,7 +113,7 @@ method remove_zone( $zid ) {
 # longitude   => 6.87,
 # distance    => 25,
 # address     => '',
-# is_outside  => 1,
+# is_outside  => 1, # if yes this increases enter/exit detection precision.
 # mode	      => 3,
 
 method add_zone( %args ) {
@@ -313,6 +313,22 @@ method super_live {
 method sos_call {
     my $res = $api->request( sprintf( "mytracker/%d/sos", $id ),
 			     Content => { phone_number => $sos_phone } );
+    return $res;		# {}
+}
+
+=head2 set_mode
+
+Sets the mode (update interval).
+
+Valid values are '30S', '1M', '2M', '3M', '5M' and 'OFF'.
+
+Additional subscription fees are required for '10s' interval.
+
+=cut
+
+method set_mode( $mode ) {
+    my $res = $api->request( sprintf( "mytracker/%d/mode", $id ),
+			     Content => { mode => uc $mode } );
     return $res;		# {}
 }
 

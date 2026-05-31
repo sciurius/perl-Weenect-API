@@ -1,4 +1,4 @@
-xxxx
+1.01	2026-05-31
 
 	(API) Add logout, kindex.
 	(Tracker) Add has_feature, position_refresh.
@@ -7,6 +7,7 @@ xxxx
 		get_wifizone, sos_call.
 	get_*zones now return a collection object.
 	get_trackers now return a collection object.
+	Add Makefile.PL to cpan kit.
 
 1.00	2026-05-30
 
