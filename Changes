@@ -1,4 +1,4 @@
-1.02	
+1.02	2026-06-01
 
 	(API) Add wifi-zone, wifi_zone_active, remove_wifi_zone.
 	Update dependencies in Makefile.PL.
