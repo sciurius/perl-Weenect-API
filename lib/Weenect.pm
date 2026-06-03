@@ -25,7 +25,7 @@ Weenect - API to Weenect tracker server
     my $trackers = $api->get_trackers;
 
     # Process tracker data.
-    foreach my $tracker ( $trackers->items->@* ) {
+    foreach my $tracker ( $trackers->@* ) {
         printf("Tracker %s [%d%s]\n", $tracker->name, $tracker->id,
                $tracker->active ? "" : ",inactive" );
     }

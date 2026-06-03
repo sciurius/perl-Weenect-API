@@ -20,7 +20,7 @@ Weenect::Tracker - Tracker data
     my $trackers = $api->get_trackers;
 
     # Process tracker data.
-    foreach my $tracker ( $trackers->items->@* ) {
+    foreach my $tracker ( $trackers->@* ) {
         printf("Tracker %s [%d%s]\n", $tracker->name, $tracker->id,
                $tracker->active ? "" : ",inactive" );
     }
@@ -69,8 +69,7 @@ The Weenect::Tracker class supports the following methods:
 
 =head2 get_zones
 
-Returns a Weenect::Zones object, that has a list of zones (geofence
-areas) in the form of Weenect::Zone objects.
+Returns a list of zones (geofence areas) in the form of Weenect::Zone objects.
 
 Use the items method to get at the list.
 
@@ -80,7 +79,7 @@ method get_zones {
     require Weenect::Zone;
     my $res = $api->request( sprintf( "mytracker/%d/zones", $id ) );
     return unless $res;
-    return Weenect::Zones->create($res);
+    return Weenect::Zones->create($res)->items;
 }
 
 =head2 get_zone( $zid )
@@ -124,8 +123,7 @@ method add_zone( %args ) {
 
 =head2 get_wifizones
 
-Returns a Weenect::WiFiZones object that has a list of WiFi zones
-(powersave areas) in the form of Weenect::WiFiZone objects.
+Returns a list of WiFi zones (powersave areas) in the form of Weenect::WiFiZone objects.
 
 Use its item method to get at the list.
 
@@ -135,7 +133,7 @@ method get_wifizones {
     require Weenect::WiFiZone;
     my $res = $api->request( sprintf( "mytracker/%d/wifi-zones", $id ) );
     return unless $res;
-    return Weenect::WiFiZones->create($res);
+    return Weenect::WiFiZones->create($res)->items;
 }
 
 =head2 get_wifizone( $zid )

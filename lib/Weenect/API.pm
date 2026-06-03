@@ -20,7 +20,7 @@ Weenect::API - API interaction
     my $trackers = $api->get_trackers;
 
     # Process tracker data.
-    foreach my $tracker ( $trackers->items->@* ) {
+    foreach my $tracker ( $trackers->@* ) {
 	printf("Tracker %s [%d%s]\n", $tracker->name, $tracker->id,
 	      $tracker->active ? "" : ",inactive" );
     }
@@ -87,7 +87,7 @@ method get_trackers {
     my $res = $api->request("mytracker"); # same as "mytracker-userspace"?
     return unless $res;
 
-    return Weenect::Trackers->create_with_api( $res, $api );
+    return Weenect::Trackers->create_with_api( $res, $api )->items;
 }
 
 =head2 get_preferences
@@ -191,7 +191,7 @@ Enables/disables a WiFi zone.
 
 method wifi_zone_active( $zid, $active = 1 ) {
 
-    my $z = $api->wifi_zone($zid);
+    my $z = $self->wifi_zone($zid);
     require Weenect::WiFiZone;
     my $zone = Weenect::WiFiZone->create($z)->hash;
     $zone->{is_active} = $active;
@@ -229,8 +229,12 @@ Adds a new WiFi zone and returns the WiFiZone object for the hew zone.
 
 
 method add_wifi_zone( %atts ) {
-    %atts = ( delete($atts{_zone})->hash->%*, %atts ) if $atts{_zone};
-    return $api->request( "wifi-zone", Content => \%atts );
+    ...;
+    for ( $atts{_zone} ) {
+	delete($atts{_zone});
+	%atts = ( $_->hash->%*, %atts );
+    }
+    return $api->request( "wifi-zone", Content => \%atts, OP => 'PUT' );
 }
 
 ################ Classes ################

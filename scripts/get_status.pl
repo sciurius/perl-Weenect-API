@@ -3,8 +3,8 @@
 # Author          : Johan Vromans
 # Created On      : Thu Apr 23 19:20:34 2026
 # Last Modified By: Johan Vromans
-# Last Modified On: Sun May 31 21:47:25 2026
-# Update Count    : 262
+# Last Modified On: Wed Jun  3 11:55:22 2026
+# Update Count    : 263
 # Status          : Unknown, Use with caution!
 
 ################ Common stuff ################
@@ -65,7 +65,7 @@ sub main() {
 
     my $trackers = $api->get_trackers;
 
-    foreach my $tracker ( $trackers->items->@* ) {
+    foreach my $tracker ( $trackers->@* ) {
 
 	printf("Tracker %s [%d%s]\n", $tracker->name, $tracker->id,
 	      $tracker->active ? "" : ",inactive" );
@@ -80,7 +80,7 @@ sub main() {
 
 	my $zones = $tracker->get_wifizones;
 	my $zid = $here->wifi_zone_id;
-	foreach my $zone ( $zones->items->@* ) {
+	foreach my $zone ( $zones->@* ) {
 	    printf( "  %sWiFi zone %s [%d, %dm]%s\n",
 			$zid == $zone->id ? ">" : " ",
 			$zone->name, $zone->id,
@@ -91,7 +91,7 @@ sub main() {
 
 	$zid = $tracker->geofence_number;
 	$zones = $tracker->get_zones;
-	foreach my $zone ( $zones->items->@* ) {
+	foreach my $zone ( $zones->@* ) {
 	    my $mark = " ";
 	    if ( $zone->id == $zid ) {
 		$mark = ">";
